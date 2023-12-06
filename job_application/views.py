@@ -3,6 +3,7 @@ from .forms import ApplicationForm
 from .models import Form
 from django.contrib import messages
 from django.core.mail import EmailMessage
+from django.views.generic.base import TemplateView
 
 def index(request):
     if request.method == "POST":
@@ -24,3 +25,11 @@ def index(request):
             messages.success(request, "Form submitted successfully!")
 #            print(first_name)
     return render(request, "index.html")
+
+def about(request):
+    return render(request, "about.html")
+
+
+class Contact(TemplateView):
+
+    template_name = 'contact.html'
